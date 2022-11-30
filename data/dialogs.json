@@ -29,7 +29,11 @@
         "subdialogs": [
           "kunst",
           "NawiC",
-          "Wahlfach1Mathe"
+          "Wahlfach1Mathe",
+          {
+            "if": "MatheNichtGenugNawi",
+            "dialog": "NawiC"
+          }
         ],
         "dont-filter": true
       },

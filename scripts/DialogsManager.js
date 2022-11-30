@@ -18,8 +18,6 @@ class DialogsManager
 
     openDialog(level, { title, options })
     {
-        if(level > 0) this.#resetToLevel(level - 1);
-
         const dialog = new Dialog(title, level, this.#optionsFilter.filterOptions(options));
 
         this.#dialogsRootElement.appendChild(dialog.visualElement);
@@ -38,7 +36,7 @@ class DialogsManager
         });
     }
 
-    #resetToLevel(level)
+    resetToLevel(level)
     {
         const removedDialogs = this.#dialogs.splice(level + 1, this.#dialogs.length);
         removedDialogs.forEach(dialog => dialog.clear());

@@ -1,13 +1,78 @@
 
 main();
 
+function hasABC(faecher)
+{
+    if (faecher.length < 3) return false;
+
+    const niveaus = faecher.map(fach => numberFromNiveau(fach.niveau));
+
+    if (niveaus[0] < numberFromNiveau('A')) return false;
+    if (niveaus[1] < numberFromNiveau('B')) return false;
+    if (niveaus[2] < numberFromNiveau('C')) return false;
+    return true;
+}
+function hasBBB(faecher)
+{
+    if (faecher.length < 3) return false;
+
+    const niveaus = faecher.map(fach => numberFromNiveau(fach.niveau));
+
+    if (niveaus[0] < numberFromNiveau('B')) return false;
+    if (niveaus[1] < numberFromNiveau('B')) return false;
+    if (niveaus[2] < numberFromNiveau('B')) return false;
+    return true;
+}
+function hasBBCC(faecher)
+{
+    if (faecher.length < 4) return false;
+
+    const niveaus = faecher.map(fach => numberFromNiveau(fach.niveau));
+
+    if (niveaus[0] < numberFromNiveau('B')) return false;
+    if (niveaus[1] < numberFromNiveau('B')) return false;
+    if (niveaus[2] < numberFromNiveau('C')) return false;
+    if (niveaus[3] < numberFromNiveau('C')) return false;
+    return true;
+}
+
+function strNawiObergebietHatGenugNawi(faecher)
+{
+    faecher = faecher.filter(fach => isNaWi(fach));
+
+    console.log(faecher);
+
+    return hasABC(faecher) || hasBBB(faecher) || hasBBCC(faecher);
+}
+
+class ConditionEvaluator
+{
+    #faecherwahlManager
+    #conditions = {}
+;
+    constructor(faecherwahlManager)
+    {
+        this.#faecherwahlManager = faecherwahlManager;
+
+        this.#conditions.MatheNichtGenugNawi = faecher =>
+        {
+            return !strNawiObergebietHatGenugNawi(faecher);
+        };
+    }
+
+    evaluate(condition)
+    {
+        return this.#conditions[condition](removeLowerNiveaus(sortiereFaecherNachNiveau(this.#faecherwahlManager.faecher)));
+    }
+}
+
 async function main()
 {
     // chosen classes manager. Also takes care of communicating with the grid showing chosen classes
     const faecherwahlManager = new FaecherwahlManager(connectGridDisplay());
 
     // Manager for dialog-data. Its a bit complex due to the need to add subdialogs
-    const dialogData = new DialogDataStack(await getData('data/dialogs.json'));
+    const dialogData = new DialogDataStack(await getData('data/dialogs.json'), new ConditionEvaluator(faecherwahlManager));
 
     // Manager for the Dialogs the user interacts with. Also takes care of displaying them
     const dialogs = new DialogsManager(new OptionsFilter(faecherwahlManager), document.getElementById("dialogs"));
@@ -33,6 +98,7 @@ async function main()
 
         if (option.hasOwnProperty('subdialogs')) dialogData.push(level + 1, option.subdialogs);
 
+        dialogs.resetToLevel(level);
         if (dialogData.hasDataAt(level + 1))
         {
             const dialog = dialogs.openDialog(level + 1, dialogData.getDialogData(level + 1));

@@ -27,6 +27,8 @@ class FaecherwahlManager
         return this.#flatfaecherBlocks.some(e => e.fach === fach.fach && e.niveau === fach.niveau);
     }
 
+    get faecher() { return this.#flatfaecherBlocks; }
+
     get #flatfaecherBlocks()
     {
         return this.#faecherBlocks.flat();

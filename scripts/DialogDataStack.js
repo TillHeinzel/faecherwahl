@@ -1,10 +1,12 @@
 class DialogDataStack
 {
     #dialogStack = [];
+    #conditionEvaluator;
 
-    constructor(dialogsData)
+    constructor(dialogsData, conditionEvaluator)
     {
         this.dialogsData = dialogsData;
+        this.#conditionEvaluator = conditionEvaluator;
     }
 
     hasDataAt(level)
@@ -53,6 +55,10 @@ class DialogDataStack
 
             array = insertAt(array, dialogs, offset);
         });
+
+        array = array.filter(dialog => !dialog.hasOwnProperty("if") || this.#conditionEvaluator.evaluate(dialog.if));
+
+        array = array.map(dialog => dialog.hasOwnProperty("if") ? dialog.dialog : dialog);
 
         return array;
     }
