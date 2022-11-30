@@ -11,7 +11,7 @@ class DialogDataStack
 
     hasDataAt(level)
     {
-        return level < this.#constructArray().length;
+        return level < this.#filterArrayFromIndex(this.#constructArray(), level).length;
     }
 
     getDialogData(level)
@@ -40,7 +40,7 @@ class DialogDataStack
 
     #getDialogName(index)
     {
-        return this.#constructArray()[index];
+        return this.#filterArrayFromIndex(this.#constructArray(), index)[index];
     }
 
     #constructArray()
@@ -56,11 +56,20 @@ class DialogDataStack
             array = insertAt(array, dialogs, offset);
         });
 
-        array = array.filter(dialog => !dialog.hasOwnProperty("if") || this.#conditionEvaluator.evaluate(dialog.if));
-
-        array = array.map(dialog => dialog.hasOwnProperty("if") ? dialog.dialog : dialog);
-
         return array;
+    }
+
+    #filterArrayFromIndex(head, index)
+    {
+        let tail = head.splice(index, head.length);
+
+        tail = tail.filter(dialog => !dialog.hasOwnProperty("if") || this.#conditionEvaluator.evaluate(dialog.if));
+
+        tail = tail.map(dialog => dialog.hasOwnProperty("if") ? dialog.dialog : dialog);
+
+        head = head.concat(tail);
+
+        return head;
     }
 
     #resolveInheritance(dialogData)

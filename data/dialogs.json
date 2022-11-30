@@ -33,7 +33,7 @@
           "Wahlfach2",
           {
             "if": "MatheNichtGenugNawi",
-            "dialog": "NawiC"
+            "dialog": "NawiMatheExtra"
           }
         ],
         "dont-filter": true
@@ -101,6 +101,14 @@
         "subdialogs": [
           "NawiC",
           "NawiC2Musik",
+          {
+            "if": "HatKeinNaWiB",
+            "dialog": "NawiB"
+          },
+          {
+            "if": "HatKeinWahlfach",
+            "dialog": "Wahlfach1"
+          },
           "Wahlfach2"
         ],
         "dont-filter": true
@@ -128,6 +136,14 @@
           "kunst",
           "NawiC",
           "NawiC2Wipo",
+          {
+            "if": "HatKeinNaWiB",
+            "dialog": "NawiB"
+          },
+          {
+            "if": "HatKeinWahlfach",
+            "dialog": "Wahlfach1"
+          },
           "Wahlfach2"
         ],
         "dont-filter": true
@@ -219,20 +235,17 @@
       {
         "fach": "Biologie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "fach": "Chemie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "fach": "Naturgeografie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "faecher": [
@@ -284,26 +297,22 @@
       {
         "fach": "Biologie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "fach": "Chemie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "fach": "Naturgeografie",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "fach": "Latein",
         "niveau": "C",
-        "type": "obligatorisch",
-        "subdialogs": [ "NawiB", "Wahlfach1" ]
+        "type": "obligatorisch"
       },
       {
         "faecher": [
@@ -646,6 +655,26 @@
         "fach": "Naturgeografie",
         "niveau": "B",
         "type": "wahl"
+      }
+    ]
+  },
+  "NawiMatheExtra": {
+    "title": "Du hast nicht genug Naturwissenschaften in deinem Plan. Du kannst entweder zurückgehen, und welche im Wahlfach wählen, ODER du wählst zusätzlich eine weitere Naturwissenschaft auf C-Niveau. Du hast dann zusätzlich zu allem anderen was du machst Naturgeografie in der 3g.",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch"
       }
     ]
   }
