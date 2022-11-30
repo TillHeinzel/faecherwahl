@@ -15,7 +15,7 @@ class DialogDataStack
     getDialogData(level)
     {
         const nextDialogName = this.#getDialogName(level);
-        return this.dialogsData[nextDialogName];
+        return this.#resolveInheritance(deepCopy(this.dialogsData[nextDialogName]));
     }
 
     push(newLevel, newDialogs)
@@ -56,10 +56,26 @@ class DialogDataStack
 
         return array;
     }
+
+    #resolveInheritance(dialogData)
+    {
+        if (!dialogData.hasOwnProperty("inherit_from")) return dialogData;
+
+        dialogData.inherit_from.forEach(
+            inherit => { dialogData.options = dialogData.options.concat(this.dialogsData[inherit].options); }
+        );
+
+        return dialogData;
+    }
 }
 
 function insertAt(arr1, arr2, index)
 {
     const tail = arr1.splice(index, arr1.length);
     return arr1.concat(arr2).concat(tail);
+}
+
+function deepCopy(obj)
+{
+    return JSON.parse(JSON.stringify(obj));
 }
