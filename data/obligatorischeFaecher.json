@@ -1,0 +1,52 @@
+[
+  {
+    "fach": "Dänisch",
+    "niveau": "A",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Deutsch",
+    "niveau": "A",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Geschichte",
+    "niveau": "A",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Englisch",
+    "niveau": "B",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Mathematik",
+    "niveau": "B",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Altertumskunde",
+    "niveau": "C",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Religion",
+    "niveau": "C",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Physik",
+    "niveau": "C",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Wirtschaft und Politik",
+    "niveau": "C",
+    "type": "obligatorisch"
+  },
+  {
+    "fach": "Sport",
+    "niveau": "C",
+    "type": "obligatorisch"
+  }
+]

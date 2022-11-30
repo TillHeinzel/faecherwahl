@@ -1,0 +1,1027 @@
+{
+  "studienrichtungen": {
+    "title": "Wähle deine Studienrichtung",
+    "options": [
+      {
+        "name": "Mathematische Studienrichtung",
+        "faecher": [
+          {
+            "fach": "Chemie",
+            "niveau": "C",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Mathematik",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Chemie",
+            "niveau": "B",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [
+          "kunst",
+          "NawiC",
+          "Wahlfach1Mathe"
+        ],
+        "dont-filter": true
+      },
+      {
+        "name": "Biologische Studienrichtung",
+        "faecher": [
+          {
+            "fach": "Biologie",
+            "niveau": "C",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Biologie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Chemie",
+            "niveau": "C",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Chemie",
+            "niveau": "B",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Biologie",
+            "niveau": "A",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [
+          "kunst",
+          "Wahlfach1",
+          "Wahlfach2"
+        ],
+        "dont-filter": true
+      },
+      {
+        "name": "Musische Studienrichtung",
+        "faecher": [
+          {
+            "fach": "Musik",
+            "niveau": "C",
+            "type": "obligtorisch"
+          },
+          {
+            "fach": "Deutsch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Musik",
+            "niveau": "B",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Musik",
+            "niveau": "A",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [
+          "NawiC",
+          "NawiC2Musik",
+          "Wahlfach2"
+        ],
+        "dont-filter": true
+      },
+      {
+        "name": "Sozialwissenschaftliche Studienrichtung",
+        "faecher": [
+          {
+            "fach": "Deutsch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Englisch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Wirtschaft und Politik",
+            "niveau": "B",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [
+          "kunst",
+          "NawiC",
+          "NawiC2Wipo",
+          "Wahlfach2"
+        ],
+        "dont-filter": true
+      },
+      {
+        "name": "Sprachliche Studienrichtung - Französisch",
+        "faecher": [
+          {
+            "fach": "Deutsch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Englisch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Französisch",
+            "niveau": "B",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [ "kunst", "NawiSprachlich1", "NawiSprachlich2", "Wahlfach1", "Wahlfach2" ],
+        "dont-filter": true
+      },
+      {
+        "name": "Sprachliche Studienrichtung - Spanisch",
+        "faecher": [
+          {
+            "fach": "Deutsch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Englisch",
+            "niveau": "A",
+            "type": "studienrichtung"
+          },
+          {
+            "fach": "Spanisch",
+            "niveau": "B",
+            "type": "studienrichtung"
+          }
+        ],
+        "subdialogs": [ "kunst", "NawiSprachlich1", "NawiSprachlich2", "Wahlfach1", "Wahlfach2" ],
+        "dont-filter": true
+      }
+    ]
+  },
+  "kunst": {
+    "title": "Wähle ein künstlerisches Fach",
+    "options": [
+      {
+        "fach": "Kunst",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "C",
+        "type": "obligatorisch"
+      }
+    ]
+  },
+  "NawiC": {
+    "title": "Wähle eine Naturwissenschaft. <div class='annotation'>  Weil wir ein kleines Gymnasium sind, können wir leider nicht alle Wünsche erfüllen. </div>",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      }
+    ]
+  },
+  "NawiC2Musik": {
+    "title": "Wähle entweder eine weitere Naturwissen-schaft auf C-Niveau oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Naturgeografie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Chemie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Biologie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      }
+    ]
+  },
+  "NawiC2Wipo": {
+    "title": "Wähle entweder eine weitere Naturwissen-schaft auf C-Niveau oder Latein oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "fach": "Latein",
+        "niveau": "C",
+        "type": "obligatorisch",
+        "subdialogs": [ "NawiB", "Wahlfach1" ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Naturgeografie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Chemie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      },
+      {
+        "faecher": [
+          {
+            "fach": "Biologie",
+            "niveau": "B",
+            "type": "obligatorisch"
+          },
+          {
+            "fach": "Physik",
+            "niveau": "B",
+            "type": "wahl"
+          }
+        ]
+      }
+    ]
+  },
+  "NawiB": {
+    "title": "Eine Naturwissenschaft musst du auf B-Niveau anheben.",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "obligatorisch"
+      }
+    ]
+  },
+  "NawiSprachlich1": {
+    "title": "Wähle eine Naturwissenschaft:",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "obligatorisch"
+      }
+    ]
+  },
+  "NawiSprachlich2": {
+    "title": "Wähle entweder eine weitere Naturwissen-schaft auf C-Niveau, Latein C oder hebe eine Naturwissenschaft auf B-Niveau an.",
+    "options": [
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "obligatorisch"
+      },
+      {
+        "fach": "Latein",
+        "niveau": "C",
+        "type": "obligatorisch"
+      }
+    ]
+  },
+  "Wahlfach1": {
+    "title": "Wähle ein 2g Wahlfach:",
+    "options": [
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Sport",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Latein",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Philosophie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "wahl"
+      }
+    ]
+  },
+  "Wahlfach2": {
+    "title": "Wähle ein 3g Wahlfach:",
+    "options": [
+      {
+        "fach": "Englisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Französisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Spanisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Mathematik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Sport",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Latein",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Philosophie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "wahl"
+      }
+    ]
+  },
+  "Wahlfach1Mathe": {
+    "title": "Wähle ein 2g Wahlfach:",
+    "options": [
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Musik",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Musik",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Sport",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Latein",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Philosophie",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2_matheNichtGenugNaWi"
+        ]
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "wahl",
+        "subdialogs": [
+          "Wahlfach2"
+        ]
+      }
+    ]
+  },
+  "Wahlfach2_matheNichtGenugNaWi": {
+    "title": "Wähle ein 3g Wahlfach <div class='annotation'> Wenn du keine Naturwissenschaft wählt, musst du ZUSÄTZLICH in der 3g Naturgeografi belegen. Ja, dass heisst du hast mehr Stunden. </div>: ",
+    "options": [
+      {
+        "name": "Englisch A <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Englisch",
+            "niveau": "A",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Französisch A <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Französisch",
+            "niveau": "A",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Spanisch A <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Spanisch",
+            "niveau": "A",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "fach": "Mathematik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "name": "Wirtschaft und Politik B <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Wirtschaft und Politik",
+            "niveau": "B",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Wirtschaft und Politik A <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Wirtschaft und Politik",
+            "niveau": "A",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "name": "Musik C <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Musik",
+            "niveau": "C",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Musik B <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Musik",
+            "niveau": "B",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Musik A <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Musik",
+            "niveau": "A",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Kunst C <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Kunst",
+            "niveau": "C",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Kunst B <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Kunst",
+            "niveau": "B",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Sport B <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Sport",
+            "niveau": "B",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Latein C <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Latein",
+            "niveau": "C",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "name": "Philosophie C <div class='annotation'> + Naturgeografi C </div>",
+        "faecher": [
+          {
+            "fach": "Philosophie",
+            "niveau": "C",
+            "type": "wahl"
+          },
+          {
+            "fach": "Naturgeografi",
+            "niveau": "C",
+            "type": "obligatorisch"
+          }
+        ]
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "wahl"
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+@media print {
+    #dialogs {
+        display: none;
+        /*color:red;*/
+    }
+}
+
+.annotation{
+    font-size: 0.6em;
+    font-style: italic;
+    display:inline;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 160px 160px 160px;
+    padding: 10px;
+}
+
+.grid-item {
+    /* background-color: #08285977; */
+    border: 1px solid;
+    padding: 20px;
+    font-size: 0.9em;
+    text-align: left;
+    /* line-height: 150% */
+}
+
+.personal-info-grid {
+    display: grid;
+    grid-template-columns: 50px 250px;
+    /* padding: 10px; */
+}
+
+@media print {
+    body.print-element *:not(.print) {
+        display: none;
+    }
+}
+
+button {
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+#errorLabel {
+    overflow-wrap: break-word;
+    color: red;
+}
+
+#info-bag {
+    padding: 10px
+}
+
+.grid-corner {
+    border: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-header {
+    /* background-color: #082859; */
+    border: 1px solid;
+    padding: 20px;
+    font-size: 1em;
+    color: #082859;
+    text-align: center;
+}
+
+.grid-sider {
+    /* background-color: #082859; */
+    border: 1px solid;
+    padding: 20px;
+    font-size: 1em;
+    color: #082859;
+    text-align: center;
+}
+
+#infotop {
+    display: flex;
+    flex-direction: row;
+    /*padding-top: 10px;*/
+}
+
+#info-bag label {
+    /*display: inline-block*/
+}
+
+#signature {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#dialogs fieldset {
+    width: 560px
+}
+
+#dgn-image {
+
+    /* background-color: #082859; */
+}
