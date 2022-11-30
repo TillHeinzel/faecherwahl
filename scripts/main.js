@@ -1,3 +1,4 @@
+
 main();
 
 async function main()
@@ -40,7 +41,8 @@ async function main()
         }
         else
         {
-            document.getElementById('metadata').scrollIntoView({ behavior: "smooth" });
+            document.getElementById('print-area').scrollIntoView({ behavior: "smooth", block: "end" });
+
         }
     }
 }
@@ -73,12 +75,12 @@ class PrintHandler
             errorLabel.innerHTML = 'Du must in jedem Kasten oben eine Möglichkeit wählen';
             return;
         }
-        if (!document.getElementById('nameInput').value.trim().length > 0)
+        if (!document.getElementById('name-input').value.trim().length > 0)
         {
             errorLabel.innerHTML = 'Du musst oben noch deinen Namen eingeben';
             return;
         }
-        if (!document.getElementById('klasseInput').value.trim().length > 0)
+        if (!document.getElementById('klasse-input').value.trim().length > 0)
         {
             errorLabel.innerHTML = 'Du musst oben noch deine Klasse eingeben';
             return;
@@ -86,12 +88,17 @@ class PrintHandler
 
         errorLabel.innerHTML = ' ';
 
+        document.getElementById("name-output").innerText = "Name: " + document.getElementById("name-input").value;
+        document.getElementById("klasse-output").innerText = "Klasse: " + document.getElementById("klasse-input").value;
+
         window.print()
     }
 
     #areDialogsFinished()
     {
         if (!this.#dialogsManager || !this.#faecherwahlManager) return false;
+
+        console.log(this.#faecherwahlManager.numberOfChoicesTaken + " " + this.#dialogsManager.numberOfOpenDialogs);
 
         return this.#faecherwahlManager.numberOfChoicesTaken > this.#dialogsManager.numberOfOpenDialogs;
     }

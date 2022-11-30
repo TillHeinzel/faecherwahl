@@ -1,7 +1,12 @@
 @media print {
-    #dialogs {
+    .do-not-print {
         display: none;
-        /*color:red;*/
+    }
+}
+
+@media screen {
+    .do-not-show-on-screen {
+        display: none;
     }
 }
 
@@ -15,6 +20,10 @@
     display: grid;
     grid-template-columns: 100px 160px 160px 160px;
     padding: 10px;
+}
+
+.output-label{
+    display: block;
 }
 
 .grid-item {
@@ -32,15 +41,10 @@
     /* padding: 10px; */
 }
 
-@media print {
-    body.print-element *:not(.print) {
-        display: none;
-    }
-}
-
 button {
     margin-top: 10px;
-    font-size: 2em;
+    font-size: 3em;
+    background-color: orange;
 }
 
 #errorLabel {
@@ -82,10 +86,6 @@ button {
     /*padding-top: 10px;*/
 }
 
-#info-bag label {
-    /*display: inline-block*/
-}
-
 #signature {
     padding-top: 20px;
     padding-bottom: 10px;
@@ -95,7 +95,15 @@ button {
     width: 560px
 }
 
+#print-area {
+    width: 560px
+}
+
 #dgn-image {
 
     /* background-color: #082859; */
+}
+
+body {
+    padding-bottom: 300px;
 }

@@ -11,17 +11,22 @@ class DialogsManager
         this.#dialogsRootElement = dialogsRootElement;
     }
 
+    get numberOfOpenDialogs()
+    {
+        return this.#dialogs.length;
+    }
+
     openDialog(level, { title, options })
     {
         if(level > 0) this.#resetToLevel(level - 1);
 
         const dialog = new Dialog(title, level, this.#optionsFilter.filterOptions(options));
 
-        this.#dialogsRootElement.appendChild(dialog.element);
+        this.#dialogsRootElement.appendChild(dialog.visualElement);
 
         this.#dialogs.push(dialog);
 
-        return dialog.element;
+        return dialog.visualElement;
     }
 
     async getAnyResponse()

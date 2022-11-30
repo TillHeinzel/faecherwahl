@@ -1,21 +1,26 @@
 class Dialog
 {
-    element;
-    getPromise;
+    #promiseBuilder;
+    visualElement;
     options;
 
     constructor(title, level, validOptions)
     {
-        const { element, promiseBuilder } = createRadioButtonDialog(namesFromOptions(validOptions), level, title);
+        const { visualElement, promiseBuilder } = createRadioButtonDialog(namesFromOptions(validOptions), level, title);
 
-        this.element = element;
-        this.getPromise = promiseBuilder;
+        this.visualElement = visualElement;
+        this.#promiseBuilder = promiseBuilder;
         this.options = validOptions;
+    }
+
+    getPromise()
+    {
+        return this.#promiseBuilder();
     }
 
     clear()
     {
-        this.element.remove();
+        this.visualElement.remove();
     }
 }
 
@@ -83,5 +88,5 @@ function createRadioButtonDialog(labels, level, legendText)
         );
     };
 
-    return { element: fieldset, promiseBuilder: promiseBuilder };
+    return { visualElement: fieldset, promiseBuilder: promiseBuilder };
 }
