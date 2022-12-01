@@ -2,6 +2,10 @@
     .do-not-print {
         display: none;
     }
+    
+    body {
+    padding-bottom: 0vh;
+}
 }
 
 @media screen {
