@@ -1,50 +1,65 @@
 
 main();
 
-
 async function main()
 {
     // chosen classes manager. Also takes care of communicating with the grid showing chosen classes
-    const faecherwahlManager = new FaecherwahlManager(connectGridDisplay());
+    const faecherwahl = new FaecherwahlManager(connectGridDisplay());
+
+    const possibleDialogsMap = await getData('data/dialogs.json');
 
     // Manager for dialog-data. Its a bit complex due to the need to add subdialogs
-    const dialogData = new DialogDataStack(await getData('data/dialogs.json'), new Conditions(faecherwahlManager));
+    const dialogFlow = new DialogFlowManager(new Conditions(faecherwahl));
 
     // Manager for the Dialogs the user interacts with. Also takes care of displaying them
-    const dialogs = new DialogsManager(new OptionsFilter(faecherwahlManager), document.getElementById("dialogs"));
+    const openDialogs = new OpenDialogsManager(new OptionsFilter(faecherwahl), document.getElementById("dialogs"));
 
     // hook up the print-Button, so it can check, whether all dialogs have been taken care of
-    document.getElementById('print-button').onclick = makePrintCallback(dialogs, faecherwahlManager)
+    document.getElementById('print-button').onclick = makePrintCallback(openDialogs, faecherwahl)
 
     // add obligatorische Fächer
-    faecherwahlManager.push(await getData('data/obligatorischeFaecher.json'));
+    faecherwahl.push(await getData('data/obligatorischeFaecher.json'));
 
     // initialize studienrichtungsdialog
-    const initialLevel = 0;
-    dialogData.push(initialLevel, ['studienrichtungen'])
-    dialogs.openDialog(initialLevel, dialogData.getDialogData(initialLevel));
+    dialogFlow.push(['studienrichtungen'])
+    let nextDialogData = possibleDialogsMap[dialogFlow.progress().name];
 
-    // Loop
+    openDialogs.openDialog(nextDialogData);
+
+    // Listening Loop
     while (true)
     {
-        const { level, option } = await dialogs.getAnyResponse();
+        const { level, option } = await openDialogs.anyOptionInAnyDialogClicked();
 
-        faecherwahlManager.removeAboveLevel(level);
-        faecherwahlManager.push(faecherFromOption(option));
+        // reset to handle selection of a previous dialog 
+        faecherwahl.resetToLevel(level);
+        dialogFlow.resetToLevel(level);
+        openDialogs.resetToLevel(level);
 
-        if (option.hasOwnProperty('subdialogs')) dialogData.push(level + 1, option.subdialogs);
+        // handle outcome of selected option
+        faecherwahl.push(faecherFromOption(option));
+        if (option.hasOwnProperty('subdialogs')) dialogFlow.push(option.subdialogs);
 
-        dialogs.resetToLevel(level);
-        if (dialogData.hasDataAt(level + 1))
+        // Progress to get dialogs in new useful state, including opening dialogs or ending dialog interaction (we keep listeing though, to be able to respond to people going back and changing inputs)
+        let progressionData = dialogFlow.progress();
+        while (progressionData.state === Progression.Invalid)
         {
-            const dialog = dialogs.openDialog(level + 1, dialogData.getDialogData(level + 1));
-
-            dialog.scrollIntoView({ behavior: "smooth" });
+            openDialogs.addDummyDialog();
+            progressionData = dialogFlow.progress();
         }
-        else
+
+        if (progressionData.state === Progression.Valid)
+        {
+            const dialog = openDialogs.openDialog(possibleDialogsMap[progressionData.name]);
+            dialog.scrollIntoView({ behavior: "smooth" });
+
+            continue;
+        }
+        if (progressionData.state === Progression.Finished)
         {
             document.getElementById('print-area').scrollIntoView({ behavior: "smooth", block: "end" });
-
+            // keep listening, because user may still change any option
+            continue;
         }
     }
 }
@@ -100,8 +115,6 @@ class PrintHandler
     {
         if (!this.#dialogsManager || !this.#faecherwahlManager) return false;
 
-        console.log(this.#faecherwahlManager.numberOfChoicesTaken + " " + this.#dialogsManager.numberOfOpenDialogs);
-
         return this.#faecherwahlManager.numberOfChoicesTaken > this.#dialogsManager.numberOfOpenDialogs;
     }
 }
@@ -124,4 +137,3 @@ async function getData(relativePath)
 {
     return await (await fetch(relativePath)).json();
 }
-

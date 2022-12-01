@@ -1,86 +1,75 @@
-class DialogDataStack
+const Progression = {
+    Invalid: Symbol("invalid"),
+    Valid: Symbol("valid"),
+    Finished: Symbol("finished")
+}
+
+class DialogFlowManager
 {
-    #dialogStack = [];
     #conditionEvaluator;
 
-    constructor(dialogsData, conditionEvaluator)
+    #openDialogs = [];
+    #dialogQueue = [];
+
+    #nextSubDialogLayer = 0
+
+    constructor(conditionEvaluator)
     {
-        this.dialogsData = dialogsData;
         this.#conditionEvaluator = conditionEvaluator;
     }
 
-    hasDataAt(level)
+    resetToLevel(level)
     {
-        return level < this.#filterArrayFromIndex(this.#constructArray(), level).length;
+        const closedDialogs = this.#openDialogs.splice(level + 1, this.#openDialogs.length);
+
+        this.#dialogQueue = this.#dialogQueue.concat(closedDialogs.reverse());
+
+        this.#nextSubDialogLayer = this.#openDialogs.at(-1).layer+1;
+
+        this.#dialogQueue = this.#dialogQueue.filter(e => e.layer <= this.#nextSubDialogLayer - 1);
     }
 
-    getDialogData(level)
+    hasNextName()
     {
-        const nextDialogName = this.#getDialogName(level);
-        return this.#resolveInheritance(deepCopy(this.dialogsData[nextDialogName]));
+        return this.#dialogQueue.length > 0 /*&& this.#dialogQueue.some(this.#isValidDialog)*/;
     }
 
-    push(newLevel, newDialogs)
+    #isValidDialog(dialogData)
     {
-        this.#clearAbove(newLevel - 1);
-        this.#dialogStack.push({
-            offset: newLevel,
-            dialogs: newDialogs
-        });
+        if (!dialogData.hasOwnProperty("if")) return true;
+
+        return this.#conditionEvaluator.evaluate(dialogData.if);
     }
 
-    #clearAbove(level)
+    #nameFromData(dialogData)
     {
-        const indexToClear = this.#dialogStack.findIndex((e) => e.offset > level);
-        if (indexToClear === -1)
-            return;
-
-        this.#dialogStack.splice(indexToClear, this.#dialogStack.length);
-    }
-
-    #getDialogName(index)
-    {
-        return this.#filterArrayFromIndex(this.#constructArray(), index)[index];
-    }
-
-    #constructArray()
-    {
-        let array = [];
-
-        this.#dialogStack.forEach(({
-            offset,
-            dialogs
-        }) =>
-        {
-
-            array = insertAt(array, dialogs, offset);
-        });
-
-        return array;
-    }
-
-    #filterArrayFromIndex(head, index)
-    {
-        let tail = head.splice(index, head.length);
-
-        tail = tail.filter(dialog => !dialog.hasOwnProperty("if") || this.#conditionEvaluator.evaluate(dialog.if));
-
-        tail = tail.map(dialog => dialog.hasOwnProperty("if") ? dialog.dialog : dialog);
-
-        head = head.concat(tail);
-
-        return head;
-    }
-
-    #resolveInheritance(dialogData)
-    {
-        if (!dialogData.hasOwnProperty("inherit_from")) return dialogData;
-
-        dialogData.inherit_from.forEach(
-            inherit => { dialogData.options = dialogData.options.concat(this.dialogsData[inherit].options); }
-        );
+        if (dialogData.hasOwnProperty("if")) return dialogData.dialog;
 
         return dialogData;
+    }
+
+    progress()
+    {
+        if (this.#dialogQueue.length === 0) return { state: Progression.Finished };
+
+        const data = this.#dialogQueue.pop();
+
+        this.#openDialogs.push(data);
+
+        const actualData = data.dialogData;
+
+        if (this.#isValidDialog(actualData))
+        {
+            return { state: Progression.Valid, name: this.#nameFromData(actualData) };
+        }
+
+        return { state: Progression.Invalid };
+    }
+
+    push(newDialogs)
+    {
+        this.#dialogQueue = this.#dialogQueue.concat(shallowCopy(newDialogs).reverse().map(e => ({ dialogData: e, layer: this.#nextSubDialogLayer })));
+        this.#nextSubDialogLayer += 1;
     }
 }
 
@@ -93,4 +82,9 @@ function insertAt(arr1, arr2, index)
 function deepCopy(obj)
 {
     return JSON.parse(JSON.stringify(obj));
+}
+
+function shallowCopy(array)
+{
+    return [...array];
 }

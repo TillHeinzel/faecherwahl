@@ -1,5 +1,5 @@
 
-class DialogsManager
+class OpenDialogsManager
 {
     #dialogs = [];
     #optionsFilter;
@@ -16,9 +16,9 @@ class DialogsManager
         return this.#dialogs.length;
     }
 
-    openDialog(level, { title, options })
+    openDialog({ title, options })
     {
-        const dialog = new Dialog(title, level, this.#optionsFilter.filterOptions(options));
+        const dialog = new Dialog(title, this.numberOfOpenDialogs, this.#optionsFilter.filterOptions(options));
 
         this.#dialogsRootElement.appendChild(dialog.visualElement);
 
@@ -27,7 +27,18 @@ class DialogsManager
         return dialog.visualElement;
     }
 
-    async getAnyResponse()
+    addDummyDialog()
+    {
+        this.#dialogs.push(
+            {
+                clear: function () { },
+                getPromise: function () {
+                    return new Promise(() => { });
+                }
+            });
+    }
+
+    async anyOptionInAnyDialogClicked()
     {
         return await Promise.race(this.#dialogs.map(dialog => dialog.getPromise())).then(({ index, level }) =>
         {

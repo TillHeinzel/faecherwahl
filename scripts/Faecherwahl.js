@@ -11,7 +11,7 @@ class FaecherwahlManager
 
     get numberOfChoicesTaken() { return this.#faecherBlocks.length; }
 
-    removeAboveLevel(level)
+    resetToLevel(level)
     {
         this.#faecherBlocks.splice(level+1, this.#faecherBlocks.length);
     }
