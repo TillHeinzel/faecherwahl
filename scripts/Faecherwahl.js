@@ -4,9 +4,18 @@ class FaecherwahlManager
     #display;
     #faecherBlocks = [];
 
-    constructor(display)
+    constructor()
     {
-        this.#display = display;
+        this.#display = new GridDisplay(cartesianProduct(['obligatorisch', 'studienrichtung', 'wahl'], ['C', 'B', 'A']).map(([type, niveau]) => ({
+            type: type,
+            niveau: niveau,
+            element: document.getElementById(type + ' ' + niveau),
+        })));
+
+        function cartesianProduct(...a)
+        {
+            return a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())));
+        }
     }
 
     get numberOfChoicesTaken() { return this.#faecherBlocks.length; }

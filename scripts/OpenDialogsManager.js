@@ -18,7 +18,7 @@ class OpenDialogsManager
 
     openDialog({ title, options })
     {
-        const dialog = new Dialog(title, this.numberOfOpenDialogs, this.#optionsFilter.filterOptions(options));
+        const dialog = new OpenDialog(title, this.numberOfOpenDialogs, this.#optionsFilter.filterOptions(options));
 
         this.#dialogsRootElement.appendChild(dialog.visualElement);
 

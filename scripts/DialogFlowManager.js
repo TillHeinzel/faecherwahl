@@ -1,5 +1,5 @@
 const Progression = {
-    Invalid: Symbol("invalid"),
+    DisabledDueToCondition: Symbol("invalid"),
     Valid: Symbol("valid"),
     Finished: Symbol("finished")
 }
@@ -29,9 +29,9 @@ class DialogFlowManager
         this.#dialogQueue = this.#dialogQueue.filter(e => e.layer <= this.#nextSubDialogLayer - 1);
     }
 
-    hasNextName()
+    get dialogsDone()
     {
-        return this.#dialogQueue.length > 0 /*&& this.#dialogQueue.some(this.#isValidDialog)*/;
+        return this.#dialogQueue.length === 0;
     }
 
     #isValidDialog(dialogData)
@@ -50,7 +50,7 @@ class DialogFlowManager
 
     progress()
     {
-        if (this.#dialogQueue.length === 0) return { state: Progression.Finished };
+        if (this.dialogsDone) return { state: Progression.Finished };
 
         const data = this.#dialogQueue.pop();
 
@@ -58,12 +58,9 @@ class DialogFlowManager
 
         const actualData = data.dialogData;
 
-        if (this.#isValidDialog(actualData))
-        {
-            return { state: Progression.Valid, name: this.#nameFromData(actualData) };
-        }
+        if (!this.#isValidDialog(actualData)) return { state: Progression.DisabledDueToCondition };
 
-        return { state: Progression.Invalid };
+        return { state: Progression.Valid, nextDialogKey: this.#nameFromData(actualData) };
     }
 
     push(newDialogs)
