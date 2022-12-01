@@ -20,16 +20,19 @@ function makePrintCallback(program)
         if (!program.allDialogsDone)
         {
             errorLabel.innerHTML = 'Du must in jedem Kasten oben eine Möglichkeit wählen';
+            showPrintArea();
             return;
         }
         if (!document.getElementById('name-input').value.trim().length > 0)
         {
             errorLabel.innerHTML = 'Du musst oben noch deinen Namen eingeben';
+            showPrintArea();
             return;
         }
         if (!document.getElementById('klasse-input').value.trim().length > 0)
         {
             errorLabel.innerHTML = 'Du musst oben noch deine Klasse eingeben';
+            showPrintArea();
             return;
         }
 
@@ -45,4 +48,9 @@ function makePrintCallback(program)
 async function getData(relativePath)
 {
     return await (await fetch(relativePath)).json();
+}
+
+function showPrintArea()
+{
+    document.getElementById('print-area').scrollIntoView({ behavior: "smooth" });
 }

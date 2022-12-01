@@ -10,10 +10,10 @@
     }
 }
 
-.annotation{
+.annotation {
     font-size: 0.6em;
     font-style: italic;
-    display:inline;
+    display: inline;
 }
 
 .grid-container {
@@ -22,7 +22,7 @@
     padding: 10px;
 }
 
-.output-label{
+.output-label {
     display: block;
 }
 
@@ -92,18 +92,22 @@ button {
 }
 
 #dialogs fieldset {
-    width: 560px
+    width: 560px;
 }
 
 #print-area {
-    width: 560px
+    width: 560px;
 }
 
-#dgn-image {
+    #print-area div {
+        margin: auto;
+        width: min-content;
+    }
 
+#dgn-image {
     /* background-color: #082859; */
 }
 
 body {
-    padding-bottom: 300px;
+    padding-bottom: 100vh;
 }

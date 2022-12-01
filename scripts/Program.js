@@ -82,7 +82,7 @@ class Program
         }
         if (progression.state === Progression.Finished)
         {
-            document.getElementById('grid-container').scrollIntoView({ behavior: "smooth" });
+            document.getElementById('print-area').scrollIntoView({ behavior: "smooth", block:"end" });
         }
     }
 }
