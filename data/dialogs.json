@@ -507,11 +507,6 @@
         "type": "wahl"
       },
       {
-        "fach": "Sport",
-        "niveau": "B",
-        "type": "wahl"
-      },
-      {
         "fach": "Latein",
         "niveau": "C",
         "type": "wahl"
@@ -659,7 +654,7 @@
     ]
   },
   "NawiMatheExtra": {
-    "title": "Du hast nicht genug Naturwissenschaften in deinem Plan. Du kannst entweder zurückgehen, und welche im Wahlfach wählen, ODER du wählst zusätzlich eine weitere Naturwissenschaft auf C-Niveau. Du hast dann zusätzlich zu allem anderen was du machst Naturgeografie in der 3g.",
+    "title": "Du hast nicht genug Naturwissenschaften in deinem Plan. Du kannst entweder zurückgehen und deine Wahlfächer ändern ODER du wählst zusätzlich eine weitere Naturwissenschaft auf C-Niveau. Du hast dann zusätzlich zu allem anderen was du machst Naturgeografie in der 3g.",
     "options": [
       {
         "fach": "Biologie",
