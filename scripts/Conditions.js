@@ -10,12 +10,19 @@ class Conditions
         this.#conditions.MatheNichtGenugNawi = faecher => !matheHatGenugNawi(faecher);
         this.#conditions.HatKeinNaWiB = faecher => !hatNaWiB(faecher);
         this.#conditions.HatKeinWahlfach = faecher => !hatEinWahlfach(faecher);
+        this.#conditions.HatNichtNurCGewaehlt = faecher => !hat9CNiveauFaecher(faecher);
+        this.#conditions.HatNurCGewaehlt = faecher => hat9CNiveauFaecher(faecher);
     }
 
     evaluate(condition)
     {
         return this.#conditions[condition](removeLowerNiveaus(sortiereFaecherNachNiveau(deepCopy(this.#faecherwahlManager.faecher))));
     }
+}
+
+function hat9CNiveauFaecher(faecher)
+{
+    return faecher.filter(fach => fach.niveau === 'C').length === 9
 }
 
 function hatNaWiB(faecher)
