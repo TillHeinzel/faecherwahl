@@ -167,7 +167,20 @@
             "type": "studienrichtung"
           }
         ],
-        "subdialogs": [ "kunst", "NawiSprachlich1", "NawiSprachlich2", "Wahlfach1", "Wahlfach2" ],
+        "subdialogs": [ 
+          "kunst", 
+          "NawiSprachlich1", 
+          "NawiSprachlich2", 
+          "Wahlfach1" ,
+          {
+            "if": "HatNurCGewaehlt",
+            "dialog": "Wahlfach2_keinCNiveau"
+          },
+          {
+            "if": "HatNichtNurCGewaehlt",
+            "dialog": "Wahlfach2"
+          }                     
+        ],
         "dont-filter": true
       },
       {
@@ -189,7 +202,20 @@
             "type": "studienrichtung"
           }
         ],
-        "subdialogs": [ "kunst", "NawiSprachlich1", "NawiSprachlich2", "Wahlfach1", "Wahlfach2" ],
+        "subdialogs": [ 
+          "kunst", 
+          "NawiSprachlich1", 
+          "NawiSprachlich2", 
+          "Wahlfach1",
+          {
+            "if": "HatNurCGewaehlt",
+            "dialog": "Wahlfach2_keinCNiveau"
+          },
+          {
+            "if": "HatNichtNurCGewaehlt",
+            "dialog": "Wahlfach2"
+          }                     
+        ],
         "dont-filter": true
       }
     ]
@@ -644,6 +670,96 @@
       {
         "fach": "Naturgeografie",
         "niveau": "C",
+        "type": "wahl"
+      },
+      {
+        "fach": "Naturgeografie",
+        "niveau": "B",
+        "type": "wahl"
+      }
+    ]
+  },
+   "Wahlfach2_keinCNiveau": {
+    "title": "Wähle ein 3g Wahlfach:",
+    "options": [
+      {
+        "fach": "Englisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Französisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Spanisch",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Mathematik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Wirtschaft und Politik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Biologie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Chemie",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Physik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Musik",
+        "niveau": "A",
+        "type": "wahl"
+      },
+      {
+        "fach": "Kunst",
+        "niveau": "B",
+        "type": "wahl"
+      },
+      {
+        "fach": "Sport",
+        "niveau": "B",
         "type": "wahl"
       },
       {
