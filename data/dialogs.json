@@ -135,16 +135,7 @@
         "subdialogs": [
           "kunst",
           "NawiC",
-          "NawiC2Wipo",
-          {
-            "if": "HatKeinNaWiB",
-            "dialog": "NawiB"
-          },
-          {
-            "if": "HatKeinWahlfach",
-            "dialog": "Wahlfach1"
-          },
-          "Wahlfach2"
+          "NawiC2Wipo"
         ],
         "dont-filter": true
       },
@@ -323,22 +314,26 @@
       {
         "fach": "Biologie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "fach": "Chemie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "fach": "Naturgeografie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "fach": "Latein",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "faecher": [
@@ -352,7 +347,8 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "faecher": [
@@ -366,7 +362,8 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "faecher": [
@@ -380,7 +377,8 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       }
     ]
   },
