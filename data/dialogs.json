@@ -100,16 +100,7 @@
         ],
         "subdialogs": [
           "NawiC",
-          "NawiC2Musik",
-          {
-            "if": "HatKeinNaWiB",
-            "dialog": "NawiB"
-          },
-          {
-            "if": "HatKeinWahlfach",
-            "dialog": "Wahlfach1"
-          },
-          "Wahlfach2"
+          "NawiC2Musik"
         ],
         "dont-filter": true
       },
@@ -247,22 +238,25 @@
     ]
   },
   "NawiC2Musik": {
-    "title": "Wähle entweder eine weitere Naturwissen-schaft auf C-Niveau oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
+    "title": "Wähle entweder eine weitere Naturwissenschaft auf C-Niveau oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
     "options": [
       {
         "fach": "Biologie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "fach": "Chemie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "fach": "Naturgeografie",
         "niveau": "C",
-        "type": "obligatorisch"
+        "type": "obligatorisch",
+        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
       },
       {
         "faecher": [
@@ -276,7 +270,8 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       },
       {
         "faecher": [
@@ -290,7 +285,8 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       },
       {
         "faecher": [
@@ -304,12 +300,13 @@
             "niveau": "B",
             "type": "wahl"
           }
-        ]
+        ],
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       }
     ]
   },
   "NawiC2Wipo": {
-    "title": "Wähle entweder eine weitere Naturwissen-schaft auf C-Niveau oder Latein oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
+    "title": "Wähle entweder eine weitere Naturwissenschaft auf C-Niveau oder Latein oder hebe Physik und deine Naturwissenschaft auf B-Niveau an.",
     "options": [
       {
         "fach": "Biologie",
@@ -348,7 +345,7 @@
             "type": "wahl"
           }
         ],
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       },
       {
         "faecher": [
@@ -363,7 +360,7 @@
             "type": "wahl"
           }
         ],
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       },
       {
         "faecher": [
@@ -378,7 +375,7 @@
             "type": "wahl"
           }
         ],
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["Wahlfach2_keinCNiveau"]
       }
     ]
   },
