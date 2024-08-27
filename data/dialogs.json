@@ -312,25 +312,25 @@
         "fach": "Biologie",
         "niveau": "C",
         "type": "obligatorisch",
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["NawiB", "Wahlfach1", "Wahlfach2"]
       },
       {
         "fach": "Chemie",
         "niveau": "C",
         "type": "obligatorisch",
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["NawiB", "Wahlfach1", "Wahlfach2"]
       },
       {
         "fach": "Naturgeografie",
         "niveau": "C",
         "type": "obligatorisch",
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["NawiB", "Wahlfach1", "Wahlfach2"]
       },
       {
         "fach": "Latein",
         "niveau": "C",
         "type": "obligatorisch",
-        "subdialogs":["NawiB", "Wahlfach", "Wahlfach2"]
+        "subdialogs":["NawiB", "Wahlfach1", "Wahlfach2"]
       },
       {
         "faecher": [
